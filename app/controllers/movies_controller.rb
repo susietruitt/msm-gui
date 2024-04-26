@@ -44,7 +44,7 @@ class MoviesController < ApplicationController
 
     matching_records = Movie.where({:id => m_id})
 
-    @the_movie = matching_records.at(0)
+    the_movie = matching_records.at(0)
 
     the_movie.title = params.fetch("the_title")
     the_movie.year = params.fetch("the_year")
@@ -54,6 +54,8 @@ class MoviesController < ApplicationController
     the_movie.director_id = params.fetch("the_director_id")
 
     the_movie.save
+
+
 
     redirect_to("/movies/#{the_movie.id}")
 
